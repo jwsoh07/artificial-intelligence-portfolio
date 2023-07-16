@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 from sklearn.linear_model import LinearRegression
 
 st.header("Housing Price Estimator :house_buildings:")
@@ -19,19 +20,25 @@ model = LinearRegression()
 model.fit(X, Y)
 
 # Plot the data points
-plt.scatter(X, Y, color='blue', label='Data')
+plt.scatter(X, Y, marker="+", color='black', label='Data Points')
 
 # Plot the regression line
-plt.plot(X, model.predict(X), color='red', linewidth=2, label='Regression Line')
+plt.plot(X, model.predict(X), color='red', linewidth=1, label='Regression Line')
+
+# Create a formatter function to format the y-axis tick labels with commas
+formatter = ticker.StrMethodFormatter("{x:,.0f}")
+plt.gca().yaxis.set_major_formatter(formatter)
+
+plt.grid(True)
 
 # Print the learned coefficients
 print("Intercept:", model.intercept_)  # Intercept (b) value
 print("Coefficient:", model.coef_)  # Slope (m) value(s)
 
 # Add labels and title to the plot
-plt.xlabel('House Size')
-plt.ylabel('House Price')
-plt.title('Linear Regression')
+plt.xlabel('House Size (m^2)')
+plt.ylabel('House Price ($)')
+plt.title('Bivariate Linear Regression Model for housing price')
 
 # Add a legend
 plt.legend()
