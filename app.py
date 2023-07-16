@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-st.header("Ordinary Least Squares")
+st.header("Housing Price Estimator :house_buildings:")
 
 # Load the data using Pandas
 data = pd.read_csv("data.csv")  # Replace 'data.csv' with the path to your dataset
