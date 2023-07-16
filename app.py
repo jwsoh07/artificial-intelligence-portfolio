@@ -41,7 +41,14 @@ st.pyplot(plt)
 
 st.divider()
 
-# Todo: Add input widget to generate prediction based on trained data.
+# Summary
+st.subheader("Summary")
+st.write("This bivariate linear regression model aims to provide users an estimate of a house price based on a dataset of 100 data points. "+
+         "See data below.")
+
+data
+
+st.divider()
 st.subheader("Prediction")
 st.caption("Value entered here will be used to provide an estimated price of a house based on the training data provided to the OLS model.")
 
