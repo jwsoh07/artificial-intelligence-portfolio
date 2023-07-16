@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from sklearn.linear_model import LinearRegression
 
+# Import the wrapper function from your package
+from streamlit_custom_components import st_custom_slider
+
 st.header("Housing Price Estimator :house_buildings:")
 
 # Load the data using Pandas
@@ -60,7 +63,7 @@ st.subheader("Prediction")
 st.caption("Value entered here will be used to provide an estimated price of a house based on the training data provided to the OLS model.")
 
 # Capture user input for prediction
-input_house_size = st.slider("House Size Input", min_value=65, max_value=200, value=120)
+input_house_size = st_custom_slider()
 
 prediction = model.predict(pd.DataFrame({'House_Size': [input_house_size]}))
 prediction_formatted = f'${round(prediction[0]):,}'
