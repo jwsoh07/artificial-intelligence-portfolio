@@ -1,17 +1,11 @@
 import streamlit as st
-
-st.sidebar.write("I could write some summary here.")
-
-
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from sklearn.linear_model import LinearRegression
-
-# Import the wrapper function from your package
 from streamlit_custom_components import st_custom_slider
 
+st.sidebar.write("I could write some summary here.")
 st.header("Housing Price Estimator :house_buildings:")
 
 # Load the data using Pandas
